@@ -17,6 +17,7 @@ use Mav\ExoBundle\Form\CategoryType;
  */
 class CategoryController extends Controller
 {
+
     /**
      * Lists all Category entities.
      *
@@ -44,8 +45,8 @@ class CategoryController extends Controller
      */
     public function createAction(Request $request)
     {
-        $entity  = new Category();
-        $form = $this->createForm(new CategoryType(), $entity);
+        $entity = new Category();
+        $form   = $this->createForm(new CategoryType(), $entity);
         $form->bind($request);
 
         if ($form->isValid()) {
@@ -122,7 +123,7 @@ class CategoryController extends Controller
             throw $this->createNotFoundException('Unable to find Category entity.');
         }
 
-        $editForm = $this->createForm(new CategoryType(), $entity);
+        $editForm   = $this->createForm(new CategoryType(), $entity);
         $deleteForm = $this->createDeleteForm($id);
 
         return array(
@@ -150,7 +151,7 @@ class CategoryController extends Controller
         }
 
         $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createForm(new CategoryType(), $entity);
+        $editForm   = $this->createForm(new CategoryType(), $entity);
         $editForm->bind($request);
 
         if ($editForm->isValid()) {
@@ -179,7 +180,7 @@ class CategoryController extends Controller
         $form->bind($request);
 
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
+            $em     = $this->getDoctrine()->getManager();
             $entity = $em->getRepository('MavExoBundle:Category')->find($id);
 
             if (!$entity) {
@@ -203,8 +204,9 @@ class CategoryController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder(array('id' => $id))
-            ->add('id', 'hidden')
-            ->getForm()
+                        ->add('id', 'hidden')
+                        ->getForm()
         ;
     }
+
 }

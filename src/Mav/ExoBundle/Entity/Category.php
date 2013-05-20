@@ -15,6 +15,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  */
 class Category
 {
+
     /**
      * @var integer
      *
@@ -38,7 +39,7 @@ class Category
      * @ORM\Column(name="slug", type="string", length=255)
      */
     protected $slug;
-    
+
     /**
      *
      * @var ArrayCollection
@@ -46,7 +47,7 @@ class Category
      * @ORM\ManyToMany(targetEntity="Article", mappedBy="categories", cascade={"persist"})
      */
     protected $articles;
-    
+
     /**
      * Constructor
      */
@@ -54,12 +55,11 @@ class Category
     {
         $this->articles = new ArrayCollection();
     }
-    
+
     public function __toString()
     {
         return $this->getName();
     }
-
 
     /**
      * Get id
@@ -116,7 +116,6 @@ class Category
     {
         return $this->slug;
     }
-    
 
     /**
      * Add articles
@@ -152,4 +151,5 @@ class Category
     {
         return $this->articles;
     }
+
 }

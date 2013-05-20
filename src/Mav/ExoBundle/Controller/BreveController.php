@@ -17,6 +17,7 @@ use Mav\ExoBundle\Form\BreveType;
  */
 class BreveController extends Controller
 {
+
     /**
      * Lists all Breve entities.
      *
@@ -26,14 +27,12 @@ class BreveController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
+        $em    = $this->getDoctrine()->getManager();
         $query = $em->getRepository('MavExoBundle:Breve')->QueryAllArticle();
-        
+
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
-            $query,
-            $this->get('request')->query->get('page', 1)/*page number*/,
-            10/*limit per page*/
+                $query, $this->get('request')->query->get('page', 1)/* page number */, 10/* limit per page */
         );
 
         return array(
@@ -50,8 +49,8 @@ class BreveController extends Controller
      */
     public function createAction(Request $request)
     {
-        $entity  = new Breve();
-        $form = $this->createForm(new BreveType(), $entity);
+        $entity = new Breve();
+        $form   = $this->createForm(new BreveType(), $entity);
         $form->bind($request);
 
         if ($form->isValid()) {
@@ -128,7 +127,7 @@ class BreveController extends Controller
             throw $this->createNotFoundException('Unable to find Breve entity.');
         }
 
-        $editForm = $this->createForm(new BreveType(), $entity);
+        $editForm   = $this->createForm(new BreveType(), $entity);
         $deleteForm = $this->createDeleteForm($id);
 
         return array(
@@ -156,7 +155,7 @@ class BreveController extends Controller
         }
 
         $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createForm(new BreveType(), $entity);
+        $editForm   = $this->createForm(new BreveType(), $entity);
         $editForm->bind($request);
 
         if ($editForm->isValid()) {
@@ -185,7 +184,7 @@ class BreveController extends Controller
         $form->bind($request);
 
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
+            $em     = $this->getDoctrine()->getManager();
             $entity = $em->getRepository('MavExoBundle:Breve')->find($id);
 
             if (!$entity) {
@@ -209,8 +208,9 @@ class BreveController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder(array('id' => $id))
-            ->add('id', 'hidden')
-            ->getForm()
+                        ->add('id', 'hidden')
+                        ->getForm()
         ;
     }
+
 }

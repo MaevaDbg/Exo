@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class DefaultController extends Controller
 {
+
     /**
      * @Route("/hello/{name}")
      * @Template()
@@ -16,4 +17,5 @@ class DefaultController extends Controller
     {
         return array('name' => $name);
     }
+
 }

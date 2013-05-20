@@ -8,10 +8,11 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class CategoryType extends AbstractType
 {
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
+                ->add('name')
         ;
     }
 
@@ -26,4 +27,5 @@ class CategoryType extends AbstractType
     {
         return 'mav_exobundle_categorytype';
     }
+
 }

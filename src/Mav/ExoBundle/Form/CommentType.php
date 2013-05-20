@@ -8,12 +8,13 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class CommentType extends AbstractType
 {
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('author')
-            ->add('content')
-            ->add('status')
+                ->add('author')
+                ->add('content')
+                ->add('status')
         ;
     }
 
@@ -28,4 +29,5 @@ class CommentType extends AbstractType
     {
         return 'mav_exobundle_commenttype';
     }
+
 }

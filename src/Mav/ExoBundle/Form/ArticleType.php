@@ -9,27 +9,28 @@ use Mav\ExoBundle\Form\CommentType;
 
 class ArticleType extends AbstractType
 {
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title')
-            ->add('excerpt')
-            ->add('content')
-            ->add('status')
-            ->add('categories','entity',array(
-                    'class' => 'MavExoBundle:Category',
-                    'property' => 'name',
-                    'expanded' =>true,
-                    'multiple' => true,
+                ->add('title')
+                ->add('excerpt')
+                ->add('content')
+                ->add('status')
+                ->add('categories', 'entity', array(
+                    'class'        => 'MavExoBundle:Category',
+                    'property'     => 'name',
+                    'expanded'     => true,
+                    'multiple'     => true,
                     'by_reference' => false
-            ))
-            ->add('photo', new PhotoType())
-            ->add('comments', 'collection', array(
-                    'type' => new CommentType(),
-                    'allow_add' => true,
+                ))
+                ->add('photo', new PhotoType())
+                ->add('comments', 'collection', array(
+                    'type'         => new CommentType(),
+                    'allow_add'    => true,
                     'allow_delete' => true,
                     'by_reference' => false
-            ))
+                ))
         ;
     }
 
@@ -44,4 +45,5 @@ class ArticleType extends AbstractType
     {
         return 'mav_exobundle_articletype';
     }
+
 }

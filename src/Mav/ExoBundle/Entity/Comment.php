@@ -13,6 +13,7 @@ use Mav\ExoBundle\Entity\Article;
  */
 class Comment
 {
+
     /**
      * @var integer
      *
@@ -42,7 +43,7 @@ class Comment
      * @ORM\Column(name="status", type="boolean")
      */
     protected $status;
-    
+
     /**
      *
      * @var Article
@@ -50,7 +51,6 @@ class Comment
      * @ORM\ManyToOne(targetEntity="Article", inversedBy="comments", cascade={"persist"})
      */
     protected $article;
-
 
     /**
      * Get id
@@ -153,4 +153,5 @@ class Comment
     {
         return $this->article;
     }
+
 }

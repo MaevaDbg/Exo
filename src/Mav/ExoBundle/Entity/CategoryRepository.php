@@ -12,19 +12,21 @@ use Doctrine\ORM\EntityRepository;
  */
 class CategoryRepository extends EntityRepository
 {
+
     public function findOneRandom()
     {
-        $em = $this->getEntityManager();
+        $em  = $this->getEntityManager();
         $max = $em->createQuery('
             SELECT MAX(c.id) FROM MavExoBundle:Category c
             ')
-            ->getSingleScalarResult();
+                ->getSingleScalarResult();
         return $em->createQuery('
             SELECT c FROM MavExoBundle:Category c
             WHERE c.id >= :rand
             ')
-            ->setParameter('rand', rand(0,$max))
-            ->setMaxResults(1)
-            ->getSingleResult();
+                        ->setParameter('rand', rand(0, $max))
+                        ->setMaxResults(1)
+                        ->getSingleResult();
     }
+
 }

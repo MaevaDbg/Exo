@@ -9,13 +9,14 @@ use Mav\ExoBundle\Form\PhotoType;
 
 class BreveType extends AbstractType
 {
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title')
-            ->add('content')
-            ->add('status')
-            ->add('photo', new PhotoType())
+                ->add('title')
+                ->add('content')
+                ->add('status')
+                ->add('photo', new PhotoType())
         ;
     }
 
@@ -30,4 +31,5 @@ class BreveType extends AbstractType
     {
         return 'mav_exobundle_brevetype';
     }
+
 }

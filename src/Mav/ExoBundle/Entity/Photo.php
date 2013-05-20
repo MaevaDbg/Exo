@@ -12,6 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Photo
 {
+
     /**
      * @var integer
      *
@@ -28,7 +29,6 @@ class Photo
      */
     private $name;
 
-    
     public function __toString()
     {
         return $this->getName();
@@ -66,4 +66,5 @@ class Photo
     {
         return $this->name;
     }
+
 }
