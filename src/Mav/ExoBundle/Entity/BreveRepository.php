@@ -12,4 +12,11 @@ use Doctrine\ORM\EntityRepository;
  */
 class BreveRepository extends EntityRepository
 {
+    public function QueryAllArticle()
+    {
+        $dql = "SELECT b FROM MavExoBundle:Breve b";
+        $query = $this->getEntityManager()->createQuery($dql);
+        
+        return $query;
+    }
 }

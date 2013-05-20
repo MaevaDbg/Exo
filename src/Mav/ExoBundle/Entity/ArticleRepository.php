@@ -12,4 +12,11 @@ use Doctrine\ORM\EntityRepository;
  */
 class ArticleRepository extends EntityRepository
 {
+    public function QueryAllArticle()
+    {
+        $dql = "SELECT a FROM MavExoBundle:Article a";
+        $query = $this->getEntityManager()->createQuery($dql);
+        
+        return $query;
+    }
 }

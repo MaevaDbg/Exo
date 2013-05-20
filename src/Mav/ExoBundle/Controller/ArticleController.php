@@ -27,11 +27,17 @@ class ArticleController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('MavExoBundle:Article')->findAll();
+        $query = $em->getRepository('MavExoBundle:Article')->QueryAllArticle();
+        
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $query,
+            $this->get('request')->query->get('page', 1)/*page number*/,
+            10/*limit per page*/
+        );
 
         return array(
-            'entities' => $entities,
+            'pagination' => $pagination,
         );
     }
 
