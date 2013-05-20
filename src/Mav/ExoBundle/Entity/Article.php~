@@ -1,0 +1,96 @@
+<?php
+
+namespace Mav\ExoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
+/**
+ * Article
+ *
+ * @ORM\Entity(repositoryClass="Mav\ExoBundle\Entity\ArticleRepository")
+ */
+class Article extends Post
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="excerpt", type="text")
+     */
+    protected $excerpt;
+    
+    /**
+     *
+     * @var ArrayCollection
+     * 
+     * @ORM\ManyToMany(targetEntity="Category", mappedBy="articles", cascade={"persist"})
+     */
+    protected $categories;
+    
+    /**
+     *
+     * @var ArrayCollection
+     * 
+     * @ORM\OneToMany(targetEntity="Comment", mappedBy="article", cascade={"persist"}, orphanRemoval=true)
+     */
+    protected $comments;
+    
+    /**
+     *
+     * @var string
+     * 
+     * @ORM\OneToOne(targetEntity="Photo", cascade={"persist"})
+     */
+    protected $photo;
+
+
+
+
+    public function __construct()
+    {
+        $this->categories = new ArrayCollection();
+        $this->comments = new ArrayCollection();
+    }
+
+        /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set excerpt
+     *
+     * @param string $excerpt
+     * @return Article
+     */
+    public function setExcerpt($excerpt)
+    {
+        $this->excerpt = $excerpt;
+
+        return $this;
+    }
+
+    /**
+     * Get excerpt
+     *
+     * @return string 
+     */
+    public function getExcerpt()
+    {
+        return $this->excerpt;
+    }
+}
