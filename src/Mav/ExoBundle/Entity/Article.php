@@ -15,15 +15,7 @@ use Mav\ExoBundle\Entity\Photo;
  */
 class Article extends Post
 {
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    protected $id;
-
+   
     /**
      * @var string
      *
@@ -59,20 +51,13 @@ class Article extends Post
 
 
     public function __construct()
-    {
+    {  
+        parent::__construct();
         $this->categories = new ArrayCollection();
         $this->comments = new ArrayCollection();
     }
 
-        /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
+       
 
     /**
      * Set excerpt
@@ -103,9 +88,9 @@ class Article extends Post
      * @param Category $categories
      * @return Article
      */
-    public function addCategory(Category $categories)
+    public function addCategory(Category $categorie)
     {
-        $this->categories[] = $categories;
+        $this->categories[] = $categorie;
 
         return $this;
     }
@@ -115,15 +100,15 @@ class Article extends Post
      *
      * @param Category $categories
      */
-    public function removeCategory(Category $categories)
+    public function removeCategory(Category $categorie)
     {
-        $this->categories->removeElement($categories);
+        $this->categories->removeElement($categorie);
     }
 
     /**
      * Get categories
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return ArrayCollection 
      */
     public function getCategories()
     {
@@ -136,10 +121,10 @@ class Article extends Post
      * @param Comment $comments
      * @return Article
      */
-    public function addComment(Comment $comments)
+    public function addComment(Comment $comment)
     {
-        $comments->setArticle($this);
-        $this->comments[] = $comments;
+        $comment->setArticle($this);
+        $this->comments[] = $comment;
 
         return $this;
     }
@@ -149,16 +134,16 @@ class Article extends Post
      *
      * @param Comment $comments
      */
-    public function removeComment(Comment $comments)
+    public function removeComment(Comment $comment)
     {
-        $comments->setArticle(null);
-        $this->comments->removeElement($comments);
+        $comment->setArticle(null);
+        $this->comments->removeElement($comment);
     }
 
     /**
      * Get comments
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return ArrayCollection 
      */
     public function getComments()
     {

@@ -1,5 +1,4 @@
 mav_exo:
-    resource: "@MavExoBundle/Controller/"
-    type:     annotation
+    resource: "@MavExoBundle/Resources/config/routing.yml"
     prefix:   /
 

@@ -126,7 +126,7 @@ class Comment
      *
      * @return boolean 
      */
-    public function getStatus()
+    public function isStatus()
     {
         return $this->status;
     }

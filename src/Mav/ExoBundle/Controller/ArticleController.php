@@ -28,7 +28,7 @@ class ArticleController extends Controller
     public function indexAction()
     {
         $em    = $this->getDoctrine()->getManager();
-        $query = $em->getRepository('MavExoBundle:Article')->QueryAllArticle();
+        $query = $em->getRepository('MavExoBundle:Article')->findAllQuery();
 
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(

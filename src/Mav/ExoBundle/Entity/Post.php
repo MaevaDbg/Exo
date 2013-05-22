@@ -14,7 +14,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @ORM\DiscriminatorColumn(name="type", type="string", length=255)
  * @ORM\DiscriminatorMap({"article" = "Article", "breve" = "Breve"})
  */
-class Post
+abstract class Post
 {
     /**
      * @var integer
@@ -71,6 +71,11 @@ class Post
      */
     protected $udate;
 
+
+    public function __construct()
+    {
+        $this->status = false;
+    }
 
     /**
      * Get id

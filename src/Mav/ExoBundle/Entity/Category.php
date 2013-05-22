@@ -58,7 +58,7 @@ class Category
 
     public function __toString()
     {
-        return $this->getName();
+        return (string) $this->getName();
     }
 
     /**
@@ -123,10 +123,10 @@ class Category
      * @param Article $articles
      * @return Category
      */
-    public function addArticle(Article $articles)
+    public function addArticle(Article $article)
     {
-        $articles->addCategory($this);
-        $this->articles[] = $articles;
+        $article->addCategory($this);
+        $this->articles[] = $article;
 
         return $this;
     }
@@ -136,10 +136,10 @@ class Category
      *
      * @param Article $articles
      */
-    public function removeArticle(Article $articles)
+    public function removeArticle(Article $article)
     {
-        $articles->removeCategory($this);
-        $this->articles->removeElement($articles);
+        $article->removeCategory($this);
+        $this->articles->removeElement($article);
     }
 
     /**

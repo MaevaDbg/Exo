@@ -12,18 +12,10 @@ use Mav\ExoBundle\Entity\Photo;
  */
 class Breve extends Post
 {
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    protected $id;
     
     /**
      *
-     * @var string
+     * @var Photo
      * 
      * @ORM\OneToOne(targetEntity="Photo", cascade={"persist"}, orphanRemoval=true)
      */
@@ -31,21 +23,20 @@ class Breve extends Post
 
 
     /**
-     * Get id
-     *
-     * @return integer 
+     * 
+     * @return Photo
      */
-    public function getId()
-    {
-        return $this->id;
-    }
-    
     public function getPhoto()
     {
         return $this->photo;
     }
-
-    public function setPhoto($photo)
+    
+    /**
+     * 
+     * @param Photo $photo
+     * @return Breve
+     */
+    public function setPhoto(Photo $photo = null)
     {
         $this->photo = $photo;
         return $this;
