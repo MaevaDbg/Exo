@@ -1,0 +1,83 @@
+admin_article:
+    pattern: /admin/article/
+    defaults: { _controller: "MavExoBundle:Article:index" }
+    
+admin_article_create:
+    pattern: /admin/article/create
+    defaults: { _controller: "MavExoBundle:Article:create" }
+
+admin_article_new:
+    pattern: /admin/article/new
+    defaults: { _controller: "MavExoBundle:Article:new" }
+
+admin_article_show:
+    pattern: /admin/article/{id}/show
+    defaults: { _controller: "MavExoBundle:Article:show" }
+
+admin_article_edit:
+    pattern: /admin/article/{id}/edit
+    defaults: { _controller: "MavExoBundle:Article:edit" }
+
+admin_article_update:
+    pattern: /admin/article/{id}/update
+    defaults: { _controller: "MavExoBundle:Article:update" }
+
+admin_article_delete:
+    pattern: /admin/article/{id}/delete
+    defaults: { _controller: "MavExoBundle:Article:delete" }
+    
+admin_breve:
+    pattern: /admin/breve/
+    defaults: { _controller: "MavExoBundle:Breve:index" }
+    
+admin_breve_create:
+    pattern: /admin/breve/create
+    defaults: { _controller: "MavExoBundle:Breve:create" }
+
+admin_breve_new:
+    pattern: /admin/breve/new
+    defaults: { _controller: "MavExoBundle:Breve:new" }
+
+admin_breve_show:
+    pattern: /admin/breve/{id}/show
+    defaults: { _controller: "MavExoBundle:Breve:show" }
+
+admin_breve_edit:
+    pattern: /admin/breve/{id}/edit
+    defaults: { _controller: "MavExoBundle:Breve:edit" }
+
+admin_breve_update:
+    pattern: /admin/breve/{id}/update
+    defaults: { _controller: "MavExoBundle:Breve:update" }
+
+admin_breve_delete:
+    pattern: /admin/breve/{id}/delete
+    defaults: { _controller: "MavExoBundle:Breve:delete" }
+
+admin_category:
+    pattern: /admin/category/
+    defaults: { _controller: "MavExoBundle:Category:index" }
+    
+admin_category_create:
+    pattern: /admin/category/create
+    defaults: { _controller: "MavExoBundle:Category:create" }
+
+admin_category_new:
+    pattern: /admin/category/new
+    defaults: { _controller: "MavExoBundle:Category:new" }
+
+admin_category_show:
+    pattern: /admin/category/{id}/show
+    defaults: { _controller: "MavExoBundle:Category:show" }
+
+admin_category_edit:
+    pattern: /admin/category/{id}/edit
+    defaults: { _controller: "MavExoBundle:Category:edit" }
+
+admin_category_update:
+    pattern: /admin/category/{id}/update
+    defaults: { _controller: "MavExoBundle:Category:update" }
+
+admin_category_delete:
+    pattern: /admin/category/{id}/delete
+    defaults: { _controller: "MavExoBundle:Category:delete" }
